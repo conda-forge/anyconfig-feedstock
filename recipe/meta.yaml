@@ -1,5 +1,5 @@
 {% set name = "anyconfig" %}
-{% set version = "0.9.8" %}
+{% set version = "0.9.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9de54c3252240b3c562e25ef070e883c266b7daad8c8bc4d5d604855edc7d739
+  sha256: 621b0b5f08efd2e375596b50f79943200d90f0397fed55cf0d2f5f484e005e9d
 
 build:
   noarch: python
