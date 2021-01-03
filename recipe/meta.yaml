@@ -1,5 +1,5 @@
 {% set name = "anyconfig" %}
-{% set version = "0.9.10" %}
+{% set version = "0.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4e1674d184e5d9e56aad5321ee65612abaa7a05a03081ccf2ee452b2d557aeed
+  sha256: d9a25625aa72dd870e0712eac3e70fee50eb243af14b2f0cc6f305ec9191cacf
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - anyconfig_cli = anyconfig.cli:main
 requirements:
@@ -33,7 +33,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.MIT
-  summary: 'Library provides common APIs to load and dump configuration files in various formats'
+  summary: Library provides common APIs to load and dump configuration files in various formats
   description: |
     python-anyconfig is a python library provides common APIs to load and dump
     configuration files in various formats with some useful features such as
