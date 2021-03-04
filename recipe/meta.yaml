@@ -17,16 +17,21 @@ build:
     - anyconfig_cli = anyconfig.cli:main
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
     - setuptools
   run:
     - setuptools
-    - python
+    - python >=3.6
 
 test:
   imports:
     - anyconfig
+  commands:
+    - pip check
+    - anyconfig_cli --help
+  requires:
+    - pip
 
 about:
   home: https://github.com/ssato/python-anyconfig
