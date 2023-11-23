@@ -10,28 +10,40 @@ source:
   sha256: 03ff2e1762af388fbbbed1c1ab7f9f1ec006a91da7db3a68b963da6e7795d2ac
 
 build:
-  noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation  -vv
   entry_points:
     - anyconfig_cli = anyconfig.cli:main
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
     - setuptools
+    - wheel
   run:
+    - python
     - setuptools
-    - python >=3.6
-
+    - Jinja2
+    - PyYAML
+    - jmespath
+    - jsonschema
+    - ruamel.yaml
+    - simplejson
+    - toml
 test:
+  source_files:
+    - tests
   imports:
     - anyconfig
+    - anyconfig.singleton
   commands:
     - pip check
     - anyconfig_cli --help
+    - pytest -v tests
   requires:
+    - pytest
     - pip
+
 
 about:
   home: https://github.com/ssato/python-anyconfig
@@ -49,7 +61,7 @@ about:
     - License: MIT
     - Document: http://python-anyconfig.readthedocs.org/en/latest/
     - Download: PyPI (https://pypi.python.org/pypi/anyconfig) or Copr RPM repos ( https://copr.fedoraproject.org/coprs/ssato/python-anyconfig/)
-  doc_url: https://python-anyconfig.readthedocs.io/en/latest/
+  doc_url: https://python-anyconfig.readthedocs.io/
   dev_url: https://github.com/ssato/python-anyconfig
 
 extra:
