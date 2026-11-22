@@ -1,13 +1,13 @@
 {% set name = "anyconfig" %}
-{% set version = "0.16.0" %}
+{% set version = "0.16.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6fcadd786f3507c0ac3fac09eeba32e4e048ab7c44b4380732e7d3a2a5fcac7b
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 97d7973b4321b814653c6781df9a8e93b508dc84a6fa3603dfbc30940ddcef24
 
 build:
   noarch: python
